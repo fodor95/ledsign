@@ -1,0 +1,164 @@
+
+void setup() {
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(3, OUTPUT);
+  
+  for(int i = 0; i <= 12; i++) 
+    digitalWrite(i, LOW);    
+  
+  for(int i = 0; i <= 12; i++) 
+    digitalWrite(i, LOW);    
+}
+
+
+void loop() {
+
+  mindki(10);
+  
+  betukegyenkentelolrol(50);
+  
+  paratlanparos(200);
+
+  betukegyenkenthatulrol(50);
+  betukegyenkentelolrol(50);
+  
+  
+  for(int x = 1; x < 5; x++)
+    kibe(random(500, 1500));
+  
+  //sorbanovekvo(int novekoido, int csokkenoido, int pihi){
+  
+  sorbanovekvo(50, 100, 500);
+
+  for(int x = 1; x < 3; x++)
+    kibe(random(100, 500));
+
+  sorbacsokkeno(50, 100, 500);
+
+  
+  for(int x = 1; x < 5; x++)
+  kibe(random(20, 90));
+
+  betukegyenkenthatulrol(50);
+
+  mindbe(3000);
+  mindki(500);
+  mindbe(3000);
+  mindki(300);
+  mindbe(2000);
+
+}
+
+
+void kibe(int ido){
+    for(int i = 2; i<=12; i++)
+      digitalWrite(i, HIGH);   
+      delay(ido);                      
+    for(int i = 2; i<=12; i++)
+      digitalWrite(i, LOW);    
+      delay(ido);   
+  
+}
+
+void mindbe(int pihi){
+  for(int i = 0; i <= 12; i++) 
+    digitalWrite(i, HIGH); 
+  delay(pihi);
+}
+
+void mindki(int pihi){
+  for(int i = 0; i <= 12; i++) 
+    digitalWrite(i, LOW); 
+  delay(pihi);
+}
+
+void sorbanovekvo(int novekoido, int csokkenoido, int pihi){
+  for(int j = 12; j >= 2; j--){
+    digitalWrite(j, HIGH);
+    delay(novekoido);
+  }
+    delay(pihi);
+
+  for(int i = 2; i<=12; i++)
+    digitalWrite(i, LOW);    
+    delay(csokkenoido);   
+  
+}
+
+void sorbacsokkeno(int novekoido, int csokkenoido, int pihi){
+  for(int j = 3; j <= 12; j++){
+    digitalWrite(j, HIGH);
+    delay(novekoido);
+  }
+    delay(pihi);
+
+  for(int i = 2; i<=12; i++)
+    digitalWrite(i, LOW);    
+    delay(csokkenoido);   
+
+}
+
+void paratlanparos(int pihi){
+
+  for(int i = 0; i<10; i++){
+  digitalWrite(12, LOW);
+  digitalWrite(11, HIGH);
+  digitalWrite(10, LOW);
+  digitalWrite(9, HIGH);
+  digitalWrite(8, LOW);
+  digitalWrite(7, HIGH);
+  digitalWrite(6, LOW);
+  digitalWrite(5, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(3, HIGH);
+
+  delay(pihi);
+  
+  digitalWrite(12, HIGH);
+  digitalWrite(11, LOW);
+  digitalWrite(10, HIGH);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  digitalWrite(7, LOW);
+  digitalWrite(6, HIGH);
+  digitalWrite(5, LOW);
+  digitalWrite(4, HIGH);
+  digitalWrite(3, LOW);
+
+  delay(pihi);
+  
+  }
+  
+}
+
+
+void betukegyenkentelolrol(int pihi){
+
+  for(int i = 12; i >= 3; i--){
+    digitalWrite(i, HIGH);
+    delay(pihi);
+    digitalWrite(i, LOW);
+    delay(pihi);
+  }
+
+}
+
+void betukegyenkenthatulrol(int pihi){
+  
+  for(int i = 3; i <= 12; i++){
+    digitalWrite(i, HIGH);
+    delay(pihi);
+    digitalWrite(i, LOW);
+    delay(pihi);
+  }
+  
+  
+}
